@@ -52,7 +52,8 @@ class DrawPanel extends JPanel
 	{
 		public Mover()
 		{
-			addMouseListener(this); // add the listener			
+			addMouseListener(this); // add the listener	
+			addKeyListener(this);
 		}
 
 		public void actionPerformed(ActionEvent evt)
@@ -62,7 +63,7 @@ class DrawPanel extends JPanel
 				x++;
 			else 
 			{ 
-				left = true; 
+				left = true;
 				x--; 
 			}
 			if ( left && x > 0 ) 
@@ -75,7 +76,9 @@ class DrawPanel extends JPanel
 		
 			// moves the ball up and down
 			if (!up && y < getHeight()-50) 
+			{
 				y++;
+			}
 			else 
 			{ 
 				up = true; 
@@ -92,7 +95,7 @@ class DrawPanel extends JPanel
 			requestFocusInWindow();
 		}
 	
-		public void mouseClicked(MouseEvent evt)
+		public void mousePressed(MouseEvent evt)
 		{
 			count++;
 			if(count%2 == 1)
@@ -108,12 +111,18 @@ class DrawPanel extends JPanel
 		 }
 	 
 		public void mouseReleased(MouseEvent evt){}
-		public void mousePressed(MouseEvent evt){}
+		public void mouseClicked(MouseEvent evt){}
 		public void mouseEntered(MouseEvent evt){}
 		public void mouseExited(MouseEvent evt){}
 
-		public void keyPressed(KeyEvent evt){}
-		public void keyReleased(KeyEvent evt){}
+		public void keyPressed(KeyEvent evt)
+		{
+			timer.setDelay(0);
+		}
+		public void keyReleased(KeyEvent evt)
+		{
+			timer.setDelay(5);
+		}
 		public void keyTyped(KeyEvent evt){}
 	}
 	
