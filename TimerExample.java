@@ -1,3 +1,4 @@
+
 import java.awt.Color;		
 import java.awt.Graphics;
 
@@ -117,12 +118,25 @@ class DrawPanel extends JPanel
 
 		public void keyPressed(KeyEvent evt)
 		{
-			timer.setDelay(0);
+			int key = evt.getKeyCode();
+			if (key == KeyEvent.VK_UP && y > 20)
+			{
+				y-=20;
+			}
+			else if (key == KeyEvent.VK_DOWN && y < getHeight() - 60)
+			{
+				y+=20;
+			}
+			else if (key == KeyEvent.VK_RIGHT && x < getWidth()-60)
+			{
+				x+=20;
+			}
+			else if (key == KeyEvent.VK_LEFT && x > 20)
+			{
+				x-=20;
+			}
 		}
-		public void keyReleased(KeyEvent evt)
-		{
-			timer.setDelay(5);
-		}
+		public void keyReleased(KeyEvent evt){}
 		public void keyTyped(KeyEvent evt){}
 	}
 	
@@ -152,3 +166,4 @@ class DrawPanel extends JPanel
 		g.fillOval(x, y, 50, 50);
 	}
 }	// end class DrawPanel
+
