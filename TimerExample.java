@@ -102,7 +102,7 @@ class DrawPanel extends JPanel
 			if(count%2 == 1)
 			{	
 				//timer.stop();
-				timer.setDelay(50);
+				timer.setDelay(0);
 			}
 			else
 			{
